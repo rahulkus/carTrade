@@ -1,7 +1,17 @@
 <template>
   <div class="hello">
     <div class="row">
-      <div class="col-sm-4"><h1>{{ msg }}</h1></div>
+      <div class="col-sm-4">
+          <section class="filtersSection">
+            <div class="filterDiv">
+                <span class="filterLabel">Keywords</span>
+            </div>
+            <div class="vehicleReport">
+                <span class="title">Get Vehicle Report</span><br/>
+                <span class="text">Powered by Carjam</span>
+            </div>
+          </section>
+      </div>
       <div class="col-sm-8">
           <swipe class="my-swipe">
             <swipe-item class="slide1">slide1</swipe-item>
