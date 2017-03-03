@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Hello from '@/components/Hello'
+import login from '@/components/pages/auth/login'
 
 Vue.use(Router)
 
@@ -10,10 +11,18 @@ export default new Router({
       path: '/',
       name: 'Hello',
       component: Hello
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: login
     }
   ],
-  configRouter: function (router) {
-    router.map({
+  configRouter: function (Router) {
+    Router.map({
+      '/': {
+        component: Hello
+      },
       '/auth': {
         component: require('../components/pages/auth.vue'),
         subRoutes: {
@@ -70,6 +79,11 @@ export default new Router({
       '*': {
         component: require('../components/pages/404.vue')
       }
+    })
+
+    Router.alias({
+      '': '/home',
+      '/auth': '/auth/login'
     })
   }
 })
