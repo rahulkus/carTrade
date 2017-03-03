@@ -1,13 +1,12 @@
 <template>
 <div class="panel-heading">
 	Register for an account
-</div>
-<div class="panel-body">
+  <div class="panel-body">
 	<form class="form-horizontal" role="form" v-on:submit="registerUser">
 
 		<div id="alerts" v-if="messages.length > 0">
-			<div v-for="message in messages" class="alert alert-{{ message.type }} alert-dismissible" role="alert">
-				{{ message.message }}
+			<div v-for="message in messages" class="alert alert-dismissible" role="alert">
+				
 			</div>
 		</div>
 
@@ -47,57 +46,15 @@
 			</div>
 		</div>
 	</form>
-</div></template>
+</div>
+</div>
+</template>
 
 <script>
 module.exports = {
 
-  data: function () {
-    return {
-      user: {
-        name: null,
-        email: null,
-        password: null,
-        password_confirmation: null
-      },
-      messages: [],
-      registering: false
-    }
-  },
+  name: 'register'
 
-  methods: {
-    registerUser: function (e) {
-      e.preventDefault()
-      var that = this
-      that.registering = true
-      client({ path: '/register', entity: this.user }).then(
-        function (response) {
-          that.getUserData()
-        },
-        function (response, status) {
-          that.messages = []
-          if (response.status && response.status.code === 422) {
-            that.messages = []
-            for (var key in response.entity) {
-              that.messages.push({type: 'danger', message: response.entity[key]})
-              that.registering = false
-            }
-          }
-        }
-      )
-
-    },
-
-    getUserData: function () {
-      var that = this
-      client({ path: '/users/me' }).then(
-        function (response) {
-          that.$dispatch('userHasLoggedIn', response.entity.user)
-          that.$route.router.go('/auth/profile')
-        }
-      )
-    }
-  }
 }
 </script>
 

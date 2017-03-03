@@ -1,4 +1,5 @@
 <template>
+	<div>
 <div class="panel-heading">
 	Your profile
 </div>
@@ -16,5 +17,6 @@
 			<td>{{ $root.user.email }}</td>
 		</tr>
 	</table>
+</div>
 </div></template>
 

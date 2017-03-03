@@ -1,4 +1,5 @@
 <template>
+	<div>
 <nav-component></nav-component>
 
 <div class="container app-screen">
@@ -42,5 +43,6 @@ SOFTWARE.
 </div><!-- End container -->
 
 <footer-component></footer-component>
+	</div>
 </template>
 
