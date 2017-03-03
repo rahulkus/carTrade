@@ -13,6 +13,7 @@
     "lint": "eslint --ext .js,.vue src test/unit/specs test/e2e/specs"
   },
   "dependencies": {
+    "@nextindex/vue-simple-accordion": "^1.0.6",
     "bootstrap-sass": "^3.3.7",
     "vue": "^2.2.1",
     "vue-router": "^2.2.0"
